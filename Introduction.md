@@ -69,19 +69,65 @@ For example, if they were creating a Javascript application and needed PostgresS
 * Also, the process of setting up the correct enviroment so application can run, can be very time consuming 
 *  For example, if the application you will be using needs to have 10 services, that would mean that this needs to be done 10 times on each operating system environment.
 
+## How Containers Aim to Solve These Issues?
+
+* When using Containers, don't have to install the services directly onto the Operating System as container is its own **isolated operating system layer with Linux based image**. 
+* This means everything is packaged into one isolated enviroment 
+* So, in the case of the previous example, will have:
+  * PostgresSQL
+  * Configuration 
+  * Start Script 
+
+in one container. So, instead of developers having to download individual services, can now find and download onto their local machine, using one single command, a container which contains them all. 
+
+* No matter what operating system developer is on, the command, the Docker command for starting the container will be the same. 
+* For example, if have a Javascript application which uses 10 applications, would have to run just 10 docker commands, one for each container.
+* Can have different versions of the same application running on your local environment without any conflict.
+
+All this makes the process a lot more effiecent 
+
+---
+
+# How Containers Improve the Deployment Process 
+
+Before containers existed, the development team would create artifacts with set of instructions on how to install and configure these artifacts on the server.
+
+* For example, would have a jar file or something similar for your application. And in addition, you would have some kind of a database service or some other service also with a set of instructions of how to configure and set it up on the server.
+* The development team would then pass on these artifacts to the Operations team and they would set up the enviroment to deploy those applications.
+
+However, doing this comes with its issues, such as: 
+
+![image](https://user-images.githubusercontent.com/107522496/199951168-b4199a05-468e-4df2-aabd-0c0c21276122.png)
+
+* Have to configure and install everything directly on the operating system - this can cause conflicts with dependency version and multiple services running on the same host
+* Because Operartions team will be reading the set of instructions provided by development team, there may be a misunderstanding or things may be left out - Ops team then will have to go back to dev team for clarification and this will delays **until application deployed on server **
+
+Containers address this issue by:
+
+![image](https://user-images.githubusercontent.com/107522496/199951948-d3010e8f-eaf5-432f-a72a-002bdbca3264.png)
 
 
+* Dev team and Ops team work in one team package the whole configuration dependencies inside the application
+* Because encapsulated in one single environment, won't have to configure any of this directly on the server
+* Only need to run a Docker command which pulls that container image that is stored somewhere in the repository and then run it
+* Just need to install and set up Docker runtime on server so that can run Containers - this just needs to be done once
 
+---
 
+# Technicaly, What is a Container?
 
+![image](https://user-images.githubusercontent.com/107522496/199956644-b2231a95-c847-4296-87b8-4f70896964a8.png)
 
+A container is:
 
+* Made up of stacked images, one on top of another 
+* At base of most Containers, have a Linux Base Image - due to it being small in size - being small is one advantage of using Containers
+* On top of Base Image, we have an Application Image - 
+* In between Base Image and Application Image, we have intermediate images which lead up to the actual application image that is going to run in the container.
+* Configuration data layer is under the Application layer 
+* 
 
-
-
-
-
-
+ 
 
 
 

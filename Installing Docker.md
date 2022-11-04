@@ -13,7 +13,8 @@ So will be following the below process:
 ---
 
 
-![image](https://user-images.githubusercontent.com/107522496/199968562-b82a9042-550f-4bdf-a3b0-f574353c4aa1.png)
+![image](https://user-images.githubusercontent.com/107522496/199969783-fb4a75f4-50a1-4532-9866-88f3898ef13c.png)
+
 
 ## Setting up the repository
 ```console
@@ -41,5 +42,31 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
+
+## Installing Docker Engine
+
+```console
+sudo apt-get update
+```
+---
+
+## Installing Latest Version 
+
+![image](https://user-images.githubusercontent.com/107522496/199970193-337af87b-0da7-4e81-9a91-ffa200e4aa11.png)
+
+```console
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+```
+
+## Verifying that the Docker Engine installation is successful by running the hello-world image:
+
+![image](https://user-images.githubusercontent.com/107522496/199970617-951ec3ed-6f4d-4553-986e-058d35b5bd73.png)
+
+```console
+sudo docker run hello-world
+```
+
+
+
 
 

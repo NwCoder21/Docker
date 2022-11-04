@@ -65,11 +65,8 @@ Before Docker, when creating applications, developers need to install most of th
 For example, if they were creating a Javascript application and needed PostgresSQL and Redis, each developer would need to install and configure these services on their local machine and run them in their local development enviroment.  
 
 * However, the installtion process would be different for every developer, depending on the Operating System they were using.
-
 * When you have have to take multiple steps to install all the required services, there is more of a chance of something going wrong 
-
 * Also, the process of setting up the correct enviroment so application can run, can be very time consuming 
-
 *  For example, if the application you will be using needs to have 10 services, that would mean that this needs to be done 10 times on each operating system environment.
 
 

@@ -128,8 +128,28 @@ A container is:
 * 
 
  
+---
+
+# Docker Vs Virtual Machines
 
 
+Firstly, Operating Systems have two layers, OS Kernel and Applications Layer. 
+
+* Kernel communicates with the hardware such as CPU and memory 
+* Applications run on the Kernel Layer 
+* Docker and Virtual Machines are virtulization tools - so, what parts of the system do these virtulize?
+
+* Docker virtulizes the applications layer - this is why, when we download a Docker Image, it contains the application layer of OS and uses the kernel of the host as it does not have its own kernel. 
+* Virtual Machines virtulizes the applications layer as well as having its own kernel, i.e., virtulizes complete operating system. This means when you download a virtual machine image on your host, it doesn't use your host kernel, it boots up its own. 
+
+This means:
+
+* Size: Docker Images are smaller in size - sometimes MBs compared to VMs which can be GBs in size 
+* Speed: docker Images are faster to start and run as VMs have to also boot up the Kernel 
+* Compatability: can run any virtual machine image of any OS on any other operating system host - not with Docker 
+*  This means, if we have a Windows OS with a Windows Kernel, if we wanted to run a Linux based Docker Image on this Windows Host, issue is Linux based Docker Image might not be compatible with Windows Kernel  - this is the case for versions below Windows 10
+
+First check if host can run Docker natively (i.e., is the kernel compatible with the Docker Image). If can't can use Docker Toolbox which abstracts away the kernel to make it possible for your hosts to run different docker images.
 
 
 

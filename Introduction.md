@@ -251,9 +251,38 @@ This command shows a list of running and stopped containers - can then take the 
 
 ![image](https://user-images.githubusercontent.com/107522496/200312913-11e57780-af26-4f3e-bc59-405b08107aca.png)
 
+---
 
+### `docker run`
 
+This command pulls an image and runs it in one go. This is like a two-in-one command. 
 
+Let's say we wanted to download the redis image and call it 4.0, 
+
+![image](https://user-images.githubusercontent.com/107522496/200313663-b8dc2a8f-a01b-4789-9ca2-16487eb30aac.png)
+
+The `docker run redis:4.0` command will pull the redi 4.0 image and start it in a container. It will look like: 
+
+![image](https://user-images.githubusercontent.com/107522496/200313965-0e071b97-2bf4-466f-9155-63091dde79e2.png)
+
+We can see that it has been downloaded and started straight away. If we then run the `docker ps` command, we will see that it is now running  
+
+![image](https://user-images.githubusercontent.com/107522496/200314247-142bd26c-dc93-4dc0-ae66-721592bce94e.png)
+
+---
+
+## How to use any container that you just started?
+
+If we look at th eoutput when running the `docker ps` command, we will see the port number. This tells us what port number the container is listening to for incoming requests. 
+
+### How do we ensure that there are no conflicts when two or more containers are running onm the same port? 
+
+![image](https://user-images.githubusercontent.com/107522496/200316448-40366163-25f0-4e68-8957-9d5b699eca1f.png)
+
+* A container is a virtual enviroment running on the host machine. Can have multiple containers running on your local host machine. 
+* A laptop has ony certain ports available. We need to create a so-called binding between a port between laptop/host and the container.  
+* In the first example, the container is listening to port 5000 and you then bind your laptop's port 5000 to that container;s port 5000. 
+* We will have a conflict when we open two 5000 ports, for example, on the host machine.
 
 
 

@@ -282,15 +282,28 @@ If we look at th eoutput when running the `docker ps` command, we will see the p
 * A container is a virtual enviroment running on the host machine. Can have multiple containers running on your local host machine. 
 * A laptop has ony certain ports available. We need to create a so-called binding between a port between laptop/host and the container.  
 * In the first example, the container is listening to port 5000 and you then bind your laptop's port 5000 to that container;s port 5000. 
-* We will have a conflict when we open two 5000 ports, for example, on the host machine.
+* We will have a conflict when we open two 5000 ports on host and will get an error message.
 
 
+However, we can use the same ports on containers as long as they are bound to two different ports on your host machine, such as:
+
+![image](https://user-images.githubusercontent.com/107522496/200332897-33482ae6-8112-4190-8aab-18e12614981c.png)
+
+We can then connect to the runnning container using the port number of the host, such as:
+
+![image](https://user-images.githubusercontent.com/107522496/200334593-50526ef0-00bb-46d6-bbe2-27ceedba85c9.png)
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/200334978-4e1a4423-1f5a-4eed-8365-25f7cd63bbb8.png)
+
+Currently, the containers are unreachable as they have not been bound to a port on the host. 
+
+![image](https://user-images.githubusercontent.com/107522496/200335098-2daa4b15-f2e3-43b3-900e-1ee2aa9c8f42.png)
 
 
+To bind a container to a port on the host,... 
 
-
-
-
- 
+ continuen from 53:50 
 
 

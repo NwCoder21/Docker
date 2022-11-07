@@ -151,6 +151,105 @@ This means:
 
 First check if host can run Docker natively (i.e., is the kernel compatible with the Docker Image). If can't can use Docker Toolbox which abstracts away the kernel to make it possible for your hosts to run different docker images.
 
+--- 
+
+# Common Docker Commands
+
+The commands we will cover will help in pullimg images locally, start, configure, and debug containers. 
+
+## Difference between Containers and Images
+
+Container is the running enviroment for the Image.
+
+![image](https://user-images.githubusercontent.com/107522496/200297731-570f086d-e7e7-454c-be10-6088de1b35e6.png)
+
+In the aboe diagram on the right, the application image, which runs the application such as postgres, redis, mongo, needa a file system where can store log files or configuration files and needs cinviroment configuration such as enviroment variables.
+
+All these enviroment things are provided by the container.
+
+* Containers also have a port that is binded to them. This allows them to talk to the application which is running inside of a container.
+* In containers, file system is virtual as containers have their own abstraction of an operating system, including file system and enviroment 
+
+> Note: when downloading an image from Docker Hub, the different layers of the image will be downloaded. 
+
+
+### `docker pull`
+
+This command downloads an image from Docker HUb. For example,
+
+```yaml
+$ docker pull redis
+```
+
+![image](https://user-images.githubusercontent.com/107522496/200308264-90b50877-390e-4c3c-a24a-787bcd53c88b.png)
+
+
+This will pull a 3D image out of the Docker Hub to your laptop.
+---
+
+### `docker images`
+
+This command displays existing images on machine 
+
+![image](https://user-images.githubusercontent.com/107522496/200302510-190000c3-a499-4f52-9f64-9079fd442470.png)
+
+> Note: tag is version of the image 
+
+Can also see the size of the image.
+
+These are images, not containers. If wanted to run the redis image so that the application can connect to it, we will have to create a container of that redis image.
+
+---
+
+### `docker run {name of image}`
+
+By using the `docker run` and followed by the name of the image, it will run the image in a container 
+
+![image](https://user-images.githubusercontent.com/107522496/200303587-d40f82f0-a55d-43a6-80cc-314c6d6ffa3f.png)
+
+> Note: Container is a running environment of an image.
+---
+
+### `docker ps`
+
+This command displays the current list of running containers 
+
+![image](https://user-images.githubusercontent.com/107522496/200303711-4167723e-cdf6-49a1-91c5-768a4e503b24.png)
+
+Here, the redis container is running based on the redis image. This also displays the port it is running on. 
+
+> Note: Use `Ctrl` + `c` to stop the container 
+
+---
+
+Normally, when using `docker run` followed by the name of the image, it will run the container in attached mode. To run it in detached mode use `docker run -d` followed by the name of the image. It will run the image in a container and when running the `docker ps`, only ouptut the ID of the container. 
+
+![image](https://user-images.githubusercontent.com/107522496/200309585-2d8a6560-b157-46eb-ac65-b6ebc8488c43.png)
+
+If you wanted to re-start a container, this can happen due to an error or a crash, will need the first part of the container ID.
+
+
+### `docker stop`
+
+This command stops a container. The below stops the container:
+
+![image](https://user-images.githubusercontent.com/107522496/200311405-52d1c63d-58f8-4c11-b0d1-d35eaa3915e2.png)
+
+### `docker start`
+
+To start it again, can use the same ID to do so, usch as: 
+
+This command is used to start a stopped container.
+
+![image](https://user-images.githubusercontent.com/107522496/200311787-0f8c24ce-2eb3-4510-beb5-f3de05e46295.png)
+
+---
+
+### `docker ps -a`
+
+This command shows a list of running and stopped containers - can then take the ID of a stopped container and restart it again using `docker start ` followed by the contianer's ID. 
+
+![image](https://user-images.githubusercontent.com/107522496/200312913-11e57780-af26-4f3e-bc59-405b08107aca.png)
 
 
 
@@ -161,5 +260,8 @@ First check if host can run Docker natively (i.e., is the kernel compatible with
 
 
 
+
+
+ 
 
 

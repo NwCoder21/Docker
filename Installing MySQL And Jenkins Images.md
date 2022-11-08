@@ -24,6 +24,27 @@ Using `docker images`, the system displays the exisitng images on your machine
 
 ![image](https://user-images.githubusercontent.com/107522496/200593533-c6ba28d2-588e-4265-b68a-9399b52b00a1.png)
 
+---
+
+When running the mySQL image, I came across the below error (red part):
+
+!![image](https://user-images.githubusercontent.com/107522496/200608504-21eea53b-d6c6-4ffc-b51c-17c53b8b2d04.png)
+
+This is because, when you attempt to run some images, they require that some enviroment variables are predefined. To se these, use:
+
+```yaml
+$ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+```
+* Replace `some-mysql` with a name for your container
+* Replace `my-secret-Replace``pw` with a password 
+* Replace `tag` with a tag number for your container 
+
+and the use the `docker run` command to run your container 
+
+
+
+
+
 
 
 

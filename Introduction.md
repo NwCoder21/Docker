@@ -293,17 +293,24 @@ We can then connect to the runnning container using the port number of the host,
 
 ![image](https://user-images.githubusercontent.com/107522496/200334593-50526ef0-00bb-46d6-bbe2-27ceedba85c9.png)
 
+and the host then will know how to forward the request to the container using the port binding
 ---
 
 ![image](https://user-images.githubusercontent.com/107522496/200334978-4e1a4423-1f5a-4eed-8365-25f7cd63bbb8.png)
 
-Currently, the containers are unreachable as they have not been bound to a port on the host. 
+Containers have their ports and they're running on the same one. However, we haven't made any binding between ourlaptop's ports and the container port.
+This is why the containers are unreachable as they have not been bound to a port on the host. 
 
 ![image](https://user-images.githubusercontent.com/107522496/200335098-2daa4b15-f2e3-43b3-900e-1ee2aa9c8f42.png)
 
+## Binding a container to a port on the host 
 
-To bind a container to a port on the host,... 
+To bind a container to a port on the host, we need to specify this at the point of running the image.
 
- continuen from 53:50 
+```yaml
+$ docker run -p6000:6379
+```
+
+
 
 

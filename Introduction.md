@@ -326,6 +326,6 @@ In the below screenshot, using `docker ps` command, we can now see that the bind
 This means the laptp's 6000 port is bound to the container's 6379 port. 
 
 
-
+Continue from 55:32 
 
 

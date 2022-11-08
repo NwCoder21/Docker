@@ -305,11 +305,26 @@ This is why the containers are unreachable as they have not been bound to a port
 
 ## Binding a container to a port on the host 
 
+![image](https://user-images.githubusercontent.com/107522496/200610539-99d1d6b1-5ebf-45c6-8b98-fbf436eca49a.png)
+
+In the above example, we have ran the redis container and can see it is using port 6379. however, we need to bind it to a port number on the laptop
+
 To bind a container to a port on the host, we need to specify this at the point of running the image.
 
 ```yaml
-$ docker run -p6000:6379
+$ docker run -p6000:6379 redis
 ```
+
+Here, the number after the `-p` is the host machine's port number and the number after the `:` is the container's port number:
+
+![image](https://user-images.githubusercontent.com/107522496/200611681-4d67cfa8-912b-4d44-8bf8-d7895f1bd680.png)
+
+In the below screenshot, using `docker ps` command, we can now see that the binding 
+
+![image](https://user-images.githubusercontent.com/107522496/200612052-9f3c559a-fa65-4564-8582-9d643d360c4f.png)
+
+This means the laptp's 6000 port is bound to the container's 6379 port. 
+
 
 
 

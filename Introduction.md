@@ -387,7 +387,7 @@ And then we can do the same for the other container:
 
 This means, if we wanted to run a command on a particular container, for example, because it has some issues, we can do so by typing in its name too, such as 
 
-![image](https://user-images.githubusercontent.com/107522496/201152063-b0e4be32-5a11-4266-9462-e877ceeeb7e7.png)
+![image](https://user-images.githubusercontent.com/107522496/201156056-28e66cce-9ae9-4226-a43c-1a4a5dcfe245.png)
 
 
 

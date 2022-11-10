@@ -377,9 +377,14 @@ $ sudo docker run -d -p3002:6379 --name myredis redis:4.0
 ```
 Here;
 
-* `-d` option is used to run the container in detached mode
+* `run` will start a new container 
+*  `-d` option is used to run the container in detached mode
 * `-p` option opens and binda a port of the host machine to the port of the container 
+* `redis:4.0` need to specify the image  
 
+And then we can do the same for the other container: 
+
+This means, if we wanted to run a command on a particular container, we can do so by typing in its name too, such as 
 
 
 

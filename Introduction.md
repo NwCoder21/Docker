@@ -385,8 +385,9 @@ And then we can do the same for the other container:
 
 ![image](https://user-images.githubusercontent.com/107522496/201148194-2ebc4951-9b0e-4cb4-b9c7-1b91ed2399ae.png)
 
-This means, if we wanted to run a command on a particular container, we can do so by typing in its name too, such as 
+This means, if we wanted to run a command on a particular container, for example, because it has some issues, we can do so by typing in its name too, such as 
 
+![image](https://user-images.githubusercontent.com/107522496/201152063-b0e4be32-5a11-4266-9462-e877ceeeb7e7.png)
 
 
 

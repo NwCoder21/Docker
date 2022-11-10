@@ -340,7 +340,7 @@ The reason why we may run a container in detached mode is so that we can use the
 
 The following is an error which occurs when trying to run another container which is trying to access the same port on the laptop as the first container. 
 
-![image](https://user-images.githubusercontent.com/107522496/201111299-483a4c6d-a4cd-48d2-bee6-9cbca3d3253b.png)
+![image](https://user-images.githubusercontent.com/107522496/201157060-99f9c5cd-9bb2-40a6-a479-de740a511d9d.png)
 
 To solve this, we can change the number of the laptop port it is trying to access, such as:
 

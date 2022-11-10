@@ -325,6 +325,38 @@ In the below screenshot, using `docker ps` command, we can now see that the bind
 
 This means the laptp's 6000 port is bound to the container's 6379 port. 
 
+---
+
+# `-d` - Running a Container in Detached mode 
+
+To run a container in detached mode, use the option `-d`. For example:
+
+![image](https://user-images.githubusercontent.com/107522496/201109302-f5877d83-b944-4b4f-a3bf-46058afd57f9.png)
+
+From the below image, we can see the container is still running.
+
+---
+
+The following is an error which occurs when trying to run another container which is trying to access the same port on the laptop as the first container. 
+
+![image](https://user-images.githubusercontent.com/107522496/201111299-483a4c6d-a4cd-48d2-bee6-9cbca3d3253b.png)
+
+To solve this, we can change the number of the laptop port it is trying to access, such as:
+
+![image](https://user-images.githubusercontent.com/107522496/201112550-d0d09b9a-a44f-42d1-832d-5e486bbe76f4.png)
+
+From the above, we can see that we now have two different versions of redis running, both of which are bound to different port on the laptop but both listening to requests on the same port. 
+
+---
+
+# Debugging 
+
+
+
+
+
+
+
 
 
 

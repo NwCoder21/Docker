@@ -349,11 +349,33 @@ From the above, we can see that we now have two different versions of redis runn
 
 ---
 
-# Debugging 
+# Debugging Containers - `docker logs` & `docker exec -it`
 
+If sommething goes wrong and want to troubleshoot to see logs or get inside of a container.
 
+So, for example, if our application is not able to connect to redis, so, want to see the logs which the redis container is producing, you would run `docker logs` followed by container ID or the name of the container
 
+```yaml
+$ docker logs <container_ID or name_of_container>  
+```
 
+![image](https://user-images.githubusercontent.com/107522496/201124594-ceb14f26-8aa1-403e-8bc6-7e97239db8cc.png)
+
+---
+
+# Renaming Containers to Your Choice 
+
+This is useful when do not want to reember the container ID, and instead find it easier to remember name of the containers. To do this
+
+For example, if we wanted to create a new container using the redis 4.0 image
+
+![image](https://user-images.githubusercontent.com/107522496/201128868-62d637a8-dfd2-48a5-bfbb-c5bd058dcff8.png)
+
+```yaml
+$ sudo docker run -d -p3002:6379 --name myredis redis:4.0
+```
+
+Here, `-d` option is used to run the container in detached mode. 
 
 
 

@@ -333,9 +333,10 @@ To run a container in detached mode, use the option `-d`. For example:
 
 ![image](https://user-images.githubusercontent.com/107522496/201109302-f5877d83-b944-4b4f-a3bf-46058afd57f9.png)
 
-From the below image, we can see the container is still running.
+The reason why we may run a container in detached mode is so that we can use the terminal again
 
 ---
+# Error When Trying to Access the Aame Port on the Laptop as the Another Container
 
 The following is an error which occurs when trying to run another container which is trying to access the same port on the laptop as the first container. 
 
@@ -374,8 +375,10 @@ For example, if we wanted to create a new container using the redis 4.0 image
 ```yaml
 $ sudo docker run -d -p3002:6379 --name myredis redis:4.0
 ```
+Here;
 
-Here, `-d` option is used to run the container in detached mode. 
+* `-d` option is used to run the container in detached mode
+* `-p` option opens and binda a port of the host machine to the port of the container 
 
 
 

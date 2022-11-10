@@ -370,7 +370,6 @@ This is useful when do not want to reember the container ID, and instead find it
 
 For example, if we wanted to create a new container using the redis 4.0 image
 
-![image](https://user-images.githubusercontent.com/107522496/201128868-62d637a8-dfd2-48a5-bfbb-c5bd058dcff8.png)
 
 ```yaml
 $ sudo docker run -d -p3002:6379 --name myredis redis:4.0
@@ -385,6 +384,8 @@ Here;
 And then we can do the same for the other container: 
 
 This means, if we wanted to run a command on a particular container, we can do so by typing in its name too, such as 
+
+![image](https://user-images.githubusercontent.com/107522496/201148194-2ebc4951-9b0e-4cb4-b9c7-1b91ed2399ae.png)
 
 
 

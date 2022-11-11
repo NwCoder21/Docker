@@ -389,8 +389,29 @@ This means, if we wanted to run a command on a particular container, for example
 
 ![image](https://user-images.githubusercontent.com/107522496/201156056-28e66cce-9ae9-4226-a43c-1a4a5dcfe245.png)
 
+`docker logs` will display the logs
 
-Continue from 1:02:27
+---
+
+Another Useful commmand when it comes to debugging is:
+
+`docker exec`
+
+This will us to get the terminal of a running container. For example, here we can see that we have two containers running. Let's say that we have an issue with one of them, in this case, let's say the redis5 container: 
+
+![image](https://user-images.githubusercontent.com/107522496/201354662-8e1bb538-b49e-42c3-907c-925d28103648.png)
+
+And we want to bring up a termina for this container and navigate th a directory, or check a log, or print out some enviromental variables, we will use:
+
+```yaml
+$ docker exec -it <specify_name/ID_of_container> /bin/bash
+```
+`-it` - stands for interactive terminal 
+
+![image](https://user-images.githubusercontent.com/107522496/201356221-b25e938d-b99f-4786-b7e3-f356d3161afc.png)
+
+We can see that the cursor has changed. We are now in the redis5 container as a root user. 
+
 
 
 

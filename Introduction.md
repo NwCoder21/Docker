@@ -173,7 +173,7 @@ All these enviroment things are provided by the container.
 > Note: when downloading an image from Docker Hub, the different layers of the image will be downloaded. 
 
 
-### `docker pull`
+# `docker pull`
 
 This command downloads an image from Docker HUb. For example,
 
@@ -187,7 +187,7 @@ $ docker pull redis
 This will pull a 3D image out of the Docker Hub to your laptop.
 ---
 
-### `docker images`
+# `docker images`
 
 This command displays existing images on machine 
 
@@ -201,7 +201,7 @@ These are images, not containers. If wanted to run the redis image so that the a
 
 ---
 
-### `docker run {name of image}`
+# `docker run {name of image}`
 
 By using the `docker run` and followed by the name of the image, it will run the image in a container 
 
@@ -210,7 +210,7 @@ By using the `docker run` and followed by the name of the image, it will run the
 > Note: Container is a running environment of an image.
 ---
 
-### `docker ps`
+# `docker ps`
 
 This command displays the current list of running containers 
 
@@ -229,7 +229,7 @@ Normally, when using `docker run` followed by the name of the image, it will run
 If you wanted to re-start a container, this can happen due to an error or a crash, will need the first part of the container ID.
 
 
-### `docker stop`
+# `docker stop`
 
 This command stops a container. The below stops the container:
 
@@ -245,7 +245,7 @@ This command is used to start a stopped container.
 
 ---
 
-### `docker ps -a`
+# `docker ps -a`
 
 This command shows a list of running and stopped containers - can then take the ID of a stopped container and restart it again using `docker start ` followed by the contianer's ID. 
 
@@ -253,7 +253,7 @@ This command shows a list of running and stopped containers - can then take the 
 
 ---
 
-### `docker run`
+# `docker run`
 
 This command pulls an image and runs it in one go. This is like a two-in-one command. 
 
@@ -271,7 +271,7 @@ We can see that it has been downloaded and started straight away. If we then run
 
 ---
 
-## How to use any container that you just started?
+# How to use any container that you just started?
 
 If we look at th eoutput when running the `docker ps` command, we will see the port number. This tells us what port number the container is listening to for incoming requests. 
 

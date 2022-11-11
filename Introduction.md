@@ -157,7 +157,7 @@ First check if host can run Docker natively (i.e., is the kernel compatible with
 
 The commands we will cover will help in pullimg images locally, start, configure, and debug containers. 
 
-## Difference between Containers and Images
+# Difference between Containers and Images
 
 Container is the running enviroment for the Image.
 
@@ -185,6 +185,7 @@ $ docker pull redis
 
 
 This will pull a 3D image out of the Docker Hub to your laptop.
+
 ---
 
 # `docker images`

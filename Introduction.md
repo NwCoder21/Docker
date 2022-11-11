@@ -236,7 +236,7 @@ This command stops a container. The below stops the container:
 
 ![image](https://user-images.githubusercontent.com/107522496/200311405-52d1c63d-58f8-4c11-b0d1-d35eaa3915e2.png)
 
-### `docker start`
+# `docker start`
 
 To start it again, can use the same ID to do so, usch as: 
 
@@ -276,7 +276,7 @@ We can see that it has been downloaded and started straight away. If we then run
 
 If we look at th eoutput when running the `docker ps` command, we will see the port number. This tells us what port number the container is listening to for incoming requests. 
 
-### How do we ensure that there are no conflicts when two or more containers are running onm the same port? 
+# How do we ensure that there are no conflicts when two or more containers are running onm the same port? 
 
 ![image](https://user-images.githubusercontent.com/107522496/200316448-40366163-25f0-4e68-8957-9d5b699eca1f.png)
 
@@ -304,7 +304,7 @@ This is why the containers are unreachable as they have not been bound to a port
 
 ![image](https://user-images.githubusercontent.com/107522496/200335098-2daa4b15-f2e3-43b3-900e-1ee2aa9c8f42.png)
 
-## Binding a container to a port on the host 
+# Binding a container to a port on the host 
 
 ![image](https://user-images.githubusercontent.com/107522496/200610539-99d1d6b1-5ebf-45c6-8b98-fbf436eca49a.png)
 
@@ -402,16 +402,69 @@ This will us to get the terminal of a running container. For example, here we ca
 
 ![image](https://user-images.githubusercontent.com/107522496/201354662-8e1bb538-b49e-42c3-907c-925d28103648.png)
 
-And we want to bring up a termina for this container and navigate th a directory, or check a log, or print out some enviromental variables, we will use:
+And we want to bring up a terminla for this container and navigate th a directory, or check a log, or print out some enviromental variables, we will use:
 
 ```yaml
 $ docker exec -it <specify_name/ID_of_container> /bin/bash
 ```
+> Note: can either specify the ID of a container or its name.
+
 `-it` - stands for interactive terminal 
 
 ![image](https://user-images.githubusercontent.com/107522496/201356221-b25e938d-b99f-4786-b7e3-f356d3161afc.png)
 
 We can see that the cursor has changed. We are now in the redis5 container as a root user. 
+
+![image](https://user-images.githubusercontent.com/107522496/201380879-4df94306-892a-436b-8d1c-baa271fba519.png)
+
+We can navigate around the container, such as moving in between directories, print enviroment variables.
+
+This can be useful if you have a container with complex configuration.
+
+To exit ther terminal, use the `exit` command, such as:
+
+![image](https://user-images.githubusercontent.com/107522496/201383520-08ba6def-d8a6-431b-adf1-091a191a57d5.png)
+
+Example of using the name with `exec-it`
+
+![image](https://user-images.githubusercontent.com/107522496/201384316-7dcf2f50-2a67-4d18-b470-cb9b903f451a.png)
+
+# To summarise the difference between `docker run` and `docker start`
+
+`docker run` will create a new container from an image with a specfic version or latest as an option/attribuute, such as:
+
+```yaml
+$ docker run redis:latest
+```
+
+ `docker run`, is where we will use options such as `-d` (detached mode) and `-p`(to bind ports).  
+
+`docker start` works with containers, not imaages. Once a container is craated, use the 
+
+```yaml
+$ docker start <name/id_oF_container>
+```
+To see what containers have already been created, use the `docker images` command. When starting the container, it will retain all the attributes that we set when creating it for the first time using `docker run`.  
+
+In other words, `docker run` is used to create a new container and `docker start` is used to restart a stopped container. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -48,8 +48,39 @@ and the use the `docker run` command to run your container.
 
 Here, I have created another mysql container named mysql5.
 
+![image](https://user-images.githubusercontent.com/107522496/202173709-2c9500a9-34a3-4200-9ad2-89e8ca47277b.png)
 
 I then installed MySQL Workbench:
 
-![image](https://user-images.githubusercontent.com/107522496/202170766-d01dcd95-ed92-4d73-a8c1-2ec11534112e.png)
 
+![image](https://user-images.githubusercontent.com/107522496/202173952-a8febff9-8061-499b-933b-3db1f8ca6ad7.png)
+
+Click on the `+` button.
+
+
+![image](https://user-images.githubusercontent.com/107522496/202174268-7d8edeb4-5c45-4342-b01d-7acf5d98de6e.png)
+
+Enter a name for the connection.
+
+Click on `password` and enter the password we set when running our mysql6 container.
+
+![image](https://user-images.githubusercontent.com/107522496/202174501-95bff045-d250-444d-9085-8b79f25403bf.png)
+
+ Click on the `Test Connection` button. If successful, click on the `Ok` button and save the connection.
+
+![image](https://user-images.githubusercontent.com/107522496/202174775-75aaf873-66f3-4e86-8c57-602f18dafbdf.png)
+
+Click on the connection we just created. After a moment, we will be connected to the database. You should see a screen which looks like…
+
+![image](https://user-images.githubusercontent.com/107522496/202174856-2867828d-225d-445b-87ba-07c7d18434b1.png)
+
+A new SQL tab should be open.
+
+Enter a basic query, such as, SELECT NOW ()
+
+![image](https://user-images.githubusercontent.com/107522496/202175155-ed3757c7-8f3a-4666-b23f-353563fe6bc4.png)
+
+And run it. 
+Should see the current time being outputted. 
+
+We have now set up a MySQL database in a docker container and connected to it. 

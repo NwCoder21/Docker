@@ -41,4 +41,15 @@ $ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
 
 and the use the `docker run` command to run your container.
 
+---
+
+![image](https://user-images.githubusercontent.com/107522496/202166247-3711ac07-0a4f-4d67-9798-9706ed9a26b0.png)
+
+
+Here, I have created another mysql container named mysql5.
+
+
+I then installed MySQL Workbench:
+
+![image](https://user-images.githubusercontent.com/107522496/202170766-d01dcd95-ed92-4d73-a8c1-2ec11534112e.png)
 

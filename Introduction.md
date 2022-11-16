@@ -439,14 +439,14 @@ $ docker run redis:latest
 
  `docker run`, is where we will use options such as `-d` (detached mode) and `-p`(to bind ports).  
 
-`docker start` works with containers, not imaages. Once a container is craated, use the 
+`docker start` works with containers, not imaages. Once a container is created, use the 
 
 ```yaml
 $ docker start <name/id_oF_container>
 ```
 To see what containers have already been created, use the `docker images` command. When starting the container, it will retain all the attributes that we set when creating it for the first time using `docker run`.  
 
-In other words, `docker run` is used to create a new container and `docker start` is used to restart a stopped container. 
+In other words, `docker run` is used to create a new container with a specfic name and attributes, and `docker start` is used to restart a stopped container. 
 
 
 

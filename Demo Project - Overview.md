@@ -182,11 +182,27 @@ To make the MongoDB and Mongo Express containers run in this network, we need to
 `docker run` is the command to use to start an container from an image. However we will also need to specify some more things in order to connect the container to the network:
 * Will need to need to specify a port using `-p`. so, will need to open a port of MongoDB. The default port for MonogDB is 27017 so we'll use that one for both, host and container. 
 * Will also run it in detached mode using `-d`
+
+
+
+
 * Enviromental Variables of MongoDB. - in the official image description (where you download the image from on Docker Hub), you actually have a couple of documentation about how to use the image, which is very helpful to kind of understand what kind of configuration you can apply to it.
 
+![image](https://user-images.githubusercontent.com/107522496/203048969-eb9ddabe-29dc-4bdb-96d0-9002771e8933.png)
+
+Here you see some environmental variables. So basically, on start-up, you can define what the root username and the password will be. These will be important in order to connect the MongoDB to the Mongo Express. 
+
+![image](https://user-images.githubusercontent.com/107522496/203049020-6cc14e7d-d0f2-4eb2-844c-187d08b465bb.png)
+
+And you can also specify the INIT database. We're just going to provide the username and password because we can create the database from the Mongo Express UI later.
 
 
+---
 
+![image](https://user-images.githubusercontent.com/107522496/203050562-58c07456-173d-4969-b900-0a94bbf58496.png)
+
+This shows us how to specify the environmental variables. One variable is USERNAME. Another is PASSWORD
+`-e` stands for environmental variable
 
 
 

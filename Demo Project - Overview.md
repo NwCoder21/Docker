@@ -117,26 +117,77 @@ As it is also already installed on this machine, won't take as long.
 
 ![image](https://user-images.githubusercontent.com/107522496/203031451-f15c8852-a2d6-4152-ad40-e2a4499026f6.png)
 
-Now if we check locally, we can see we now have them installed.
+Now if we check locally, we can see we now have them installed, MongoDb and Mongo Express.
 
 ---
 
+Next step is to run both MongoDB and Mongo Express containers in order to make the MongoDB database available for application and also to connect the Mongo Express with the MongoDB container. 
+
+Let's do the connection between those two (MongoDB and Mongo Express containers) first.
+
+# Docker Network 
+
+In order to do this, we need to understand another concept, Docker Network.
+
+![image](https://user-images.githubusercontent.com/107522496/203033236-aa2ab7d5-e6a5-4df1-8cff-380f12421fa8.png)
+
+Dockers creates its isolated Docker network in which the containers are running in. 
+
+![image](https://user-images.githubusercontent.com/107522496/203033466-3a735b6f-94f3-44d5-b789-095301d7d2c5.png)
+
+So, when we deploy two containers in the same  Docker network, in this case, MongoDB and Mongo Express, they can talk to each other using just the container name, without localhost port number etc, just the container name, as they are both in the same network.
+
+![image](https://user-images.githubusercontent.com/107522496/203034050-e53a4792-4958-4a25-a480-ec730c9d8522.png)
+
+And the applications that run outside of Docker like our Node JS, which just runs from node server, is going to connect to them from the outside/from the host using localhost and the port number.
 
 
+![image](https://user-images.githubusercontent.com/107522496/203034890-4a43c828-dbc4-4248-9fb4-3495c78a1b3a.png)
 
 
+So later when we package our application into its own Docker image, what we will have is, a Docker network a MongoDB container and a Mongo Express container. We will also have a Node Js application, which we wrote including the Index HTML and JavaScript for the frontend in its own Docker container and its going to connect to the MongoDB.
 
-
-
-
-
-
-
-
-
-
-
+And the browser, which is running on the host but outside of the Docker network, will connect to our JavaScript application again using hostname and the port number. 
  
+---
+
+# `docker network` & `docker network create` Commands
+
+Docker, by default, provides some networks.
+
+![image](https://user-images.githubusercontent.com/107522496/203035133-8e9832fd-e6d7-428a-8404-2fba426b55e7.png)
+
+Using the `docker network ls` command, we can see the auto generated Docker networks. Here, we have four of them with different names and the drivers.
+
+---
+
+What we will do is create our network for our MongoDB and Mongo Express containers and will call it Mongo Network. <br>
+
+![image](https://user-images.githubusercontent.com/107522496/203040539-4a9917cb-4428-4ede-bb89-5e2cc2223bfa.png)
+
+Now, our Docker network has been created using the `docker network create` command followed by the name we want to give to the network.
+
+To make the MongoDB and Mongo Express containers run in this network, we need to provide this network option when we run the `docker run` command 
+
+ ---
+ 
+ Let's start with the MongoDB container. 
+ 
+ 
+ 
+ 
+ 
+ 
+
+`docker run` is the command to use to start an container from an image. However we will also need to specify some more things in order to connect the container to the network:
+* Will need to need to specify a port using `-p`. so, will need to open a port of MongoDB. The default port for MonogDB is 27017 so we'll use that one for both, host and container. 
+* Will also run it in detached mode using `-d`
+* Enviromental Variables of MongoDB. - in the official image description (where you download the image from on Docker Hub), you actually have a couple of documentation about how to use the image, which is very helpful to kind of understand what kind of configuration you can apply to it.
+
+
+
+
+
 
 
 

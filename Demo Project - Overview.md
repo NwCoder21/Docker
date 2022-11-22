@@ -442,7 +442,7 @@ Docker Compose will take care of creating a common network for these containers 
 
 --- 
 
-#  Creating the Dcoker Compose File 
+#  Creating the Docker Compose File 
 
 
 

@@ -337,22 +337,117 @@ This would be, to some degree, a realistic example of how local development look
 
 # Docker Compose
 
+docker compose is used to run multiple docker containers.
+
+In the last section, we created and started two docker containers, MongoDB and Mongo Express. 
+
+![image](https://user-images.githubusercontent.com/107522496/203293568-1f04e414-1190-419e-bfa5-d9632b578ab1.png)
+
+These weere the commands we used to acheive this. First we created a network where both containers can talk to each other using just the container name. There was no need to mention the host port for them to talk to each other.
+
+Then we ran two docker run commands with their various options and enviromental variables
+
+However, this way of starting containers is time-consuming. You don't want to execute these run commands all the time on the command line terminal, especially if you have a bunch of docker containers to run.
+
+We can automate this task and there is a tool which makes it easier to run multiple docker containers with all their configuration. This tool is called `Docker Compose`.
+
+![image](https://user-images.githubusercontent.com/107522496/203295485-1fcf4e33-55e0-4ab5-bcc6-bd39ec8d1a30.png)
+
+Here we have a docker run command for the MongoDB we executed in the last section. Wiht Docker Compose file, we can take the whole command, with its configuration, and map it into file so we have a structured command.
+
+For example we have 10 containers that we want to run for our application and they all need to talk to each other
+and interact with each other.
+
+We can basically write all the run commands for each container in a structured way in the Dcoker Compose and we'll see how that structure actually looks like. 
+
+![image](https://user-images.githubusercontent.com/107522496/203296433-4a3a38e5-86e2-44c1-9f1d-f104608401d9.png)
+
+In a Docker Compose file, the first two lines are always there by defualt, version and services. 
+
+The container list goes in the services. 
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203296737-dd97c491-f40e-44ef-9a04-5cff733fdef3.png)
+
+The first one is MongoDb and that maps to the container name. this is going to be a part of the container name when docker creates a container out of configuration blueprint. 
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203298669-7f43aee7-c61c-401d-b4e2-fd3f7e32fa10.png)
+
+The next one is the image. This tells us which image the container will be built from. (can also specify a version tag here next to the name.)
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203299033-58e532a8-fd88-4dae-b225-5885b29c6791.png)
+
+The next one is port. We can also specify which port is going to open.  
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203299237-71bbb5ac-6ef0-4256-9525-b817e2ccac0c.png)
+
+The environmental variables can be also mapped in the Docker Compose.
+
+This is how actually the structure of Docker compose looks like.
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203300101-b695670b-318c-4c17-b9e1-20f03494120b.png)
+
+Let's see the second container come in for Mongar Express that we executed and how to map that.
+
+Services will list the containers that we want to create.
+
+![image](https://user-images.githubusercontent.com/107522496/203300460-3f28316e-c010-460f-9ac7-294c23b06ad0.png)
+
+Mongo Express will map to the container name.
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203300644-95211042-2c4d-476f-87b4-77f48f396c52.png)
+
+The next one will be image. Again, you can add a tag here if you want a specfic one.
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203300855-8695f605-bb6a-4b67-8cd1-b3c80b3b87bc.png)
+
+Then we have the ports, here, 8080 to 8080.
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203300950-0bd424e5-19ef-4dd7-831c-68a5a490f0d2.png)
+
+Then we have enviromental variables.
+
+This is how the Docker Compose will look like 
+
+> Docker Compose is a structured way to contain very normal docker commands.It also makes it easier to edit the file such as if you wanto to change some variables, change the ports or add some new options to the run command. 
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203302134-2140017c-ba46-47f8-b90b-1cf5879dc490.png)
+
+1:33:58
+May have noticed, don't need to include network configuration in Docker Compose. 
+This means, the `mongo-network` network we created so both containers could talk to each other, we don't need to include it in the Docker Compose. 
+
+![image](https://user-images.githubusercontent.com/107522496/203305145-2d28ff91-0a0b-4e38-92b6-8ef227686af6.png)
+
+We have the same concept here -  we have containers that will talk to each other using just the container name.
+
+Docker Compose will take care of creating a common network for these containers so we don't have to create the network and specify in which network these containers will run in.
+
+--- 
+
+#  Creating the Dcoker Compose File 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-Continue from 1:19:10
+Continue from 1:34:42
 
 
 

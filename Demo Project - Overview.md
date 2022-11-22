@@ -204,6 +204,18 @@ And you can also specify the INIT database. We're just going to provide the user
 This shows us how to specify the environmental variables. One variable is USERNAME. Another is PASSWORD
 `-e` stands for environmental variable
 
+
+
+
+
+
+
+
+
+
+
+
+
 Continue from 1:19:10
 
 

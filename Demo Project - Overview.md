@@ -442,7 +442,156 @@ Docker Compose will take care of creating a common network for these containers 
 
 --- 
 
-#  Creating the Docker Compose File 
+<!-- 1:34:42 -->
+
+# Creating the Docker Compose File 
+
+![image](https://user-images.githubusercontent.com/107522496/203743618-8c0d0ab1-4956-4ca1-bd63-05af2480426d.png)
+
+Let's create a docker compose file. So, i'm going to paste all my contents here and this is exactly what we saw on the slides and I'm going to save it is a Mongo yaml.
+
+> IMPORTANT: Indentation ina yaml-File is very important. 
+
+![image](https://user-images.githubusercontent.com/107522496/203744666-27593ba8-c95a-426d-9563-8880fa1e54aa.png)
+
+So, we can see the containers are on the same level.
+
+![image](https://user-images.githubusercontent.com/107522496/203744726-d2872f70-e637-49d6-b9e3-0af5b7fec2fd.png)
+
+And the configuration for each file is on another level down for each container.
+
+---
+
+Now we can go into this file and easily change enviromental variables such as password. 
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203745045-42b9b369-8b69-4b67-984f-0044a420f972.png)
+
+We save the Docker Compose file in the code so it's part of the application code. 
+
+---
+<!-- 1:35:46 -->
+
+# How to start the Containers Using Docker Compose File - `docker compose`
+
+The Docker Compose package usually gets installed when you intsall docker on your machine
+
+![image](https://user-images.githubusercontent.com/107522496/203746620-e91d9908-d648-4edb-895e-801c438689ab.png)
+
+The command to use Docker Compose is `docker compose`.  
+
+`docker compose -f` takes an argument, which is the file. So we will need to specify which file we want to execute. In this case, it is the mongo.yaml file
+
+`up` - We want to say what we want to do with this file. In this case we want to start all the containers which are in the mongo.yaml file, so we use `up`.
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203750308-65c38832-f983-4fd4-88f7-dddc722cd182.png)
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203760249-5fb7db7e-00f5-4843-a8ab-d80946c33b99.png)
+
+When we run the command, we can see it creates a network for the containers to be able to communicate with one another. Here, it has called the network `myapp_default`
+
+In `Creating myapp_mondodb_1` and `Creating myapp_mongo-express_1` it created the containers we specified in the Dcoker Compose file and prefixed and suffixed `myapp` and `1`.
+
+---
+
+If we run the `docker network ls` command:
+![image](https://user-images.githubusercontent.com/107522496/203761146-237f9cf8-e155-4a2e-b0a2-e05637550e24.png)
+
+We will see that the network `myapp_default` has now been created. 
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203761487-4c9df6aa-c160-45c0-8144-1417096991b0.png)
+
+We can now also see that the connection has been established
+
+![image](https://user-images.githubusercontent.com/107522496/203761868-b2f9f30b-6007-4aa0-9c95-bd3100df04c5.png)
+
+When we run `docker ps` we can see both containers are now running
+
+One thing here to note is that the Mongo Express actually started on Port 8081, inside the container. So, we are opening a port on my laptop that actually forwards the request to container at port 8081, just so that you don't get confused because was it on the slides
+
+---
+
+Now that the containers are running, let's check the first one, Mongo Express..
+
+![image](https://user-images.githubusercontent.com/107522496/203762778-be427e64-07c2-4777-95b8-99a62db721a6.png)
+
+---
+![image](https://user-images.githubusercontent.com/107522496/203762964-b8f94aee-fcef-4b09-bc1f-b036c1eabd14.png)
+
+In the previous example, we created a database in the collection, which is gone because we restart the container. 
+
+Another very important concept of containers to understand is that when you restart the container, everything that you configured in that container's application is gone. So, data is lost. There is no data persistance in the containers. 
+
+You want to have some persistence, especially when you're working with the database. And there is a concept where you're going to learn later called volumes that makes it possible to have persistency between container restarts. 
+
+![image](https://user-images.githubusercontent.com/107522496/203763413-a685f684-ea17-4b45-9934-5ce282c0237d.png)
+
+---
+
+For now, let's create the database again...
+
+![image](https://user-images.githubusercontent.com/107522496/203763842-30cfd148-5b9b-4002-8d52-3a1ec3fa35a5.png)
+
+Once created, click on it..
+
+![image](https://user-images.githubusercontent.com/107522496/203763970-7726a14e-e638-4a87-ad43-85a63436f80c.png)
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203764075-455c7bf1-a9e4-4983-91a1-fa0fad9d7f93.png)
+
+Create the users collection. For now it will be empty...
+
+![image](https://user-images.githubusercontent.com/107522496/203764168-01783ed2-652c-4fe2-a087-faf09178dfa8.png)
+
+---
+
+Then start our application ......
+
+![image](https://user-images.githubusercontent.com/107522496/203764279-99c5a43b-80f9-4d99-8f85-aa23efec6c3b.png)
+
+![image](https://user-images.githubusercontent.com/107522496/203764371-2074151d-006c-42ac-a63f-a97b66bc7e8a.png)
+
+---
+
+![image](https://user-images.githubusercontent.com/107522496/203764611-6a621684-e410-4a97-84a7-ee082f82e611.png)
+
+If we then modify and click on update, 
+
+![image](https://user-images.githubusercontent.com/107522496/203764693-8a161a08-74c8-462f-b347-c545dbe67ae8.png)
+
+we should see the updated entry. This means the connectivity with MongoDB works. 
+
+---
+
+# How to Stop Containers Running Via Docker Compose
+
+
+We can use the containers' IDs with `docker stop` in order to stop them as we did previously, or ....
+
+![image](https://user-images.githubusercontent.com/107522496/203765176-1fb1a3da-5b0b-46b6-9e1a-bda796155123.png)
+
+We can use `docker-compose -f mongo.yaml down`
+
+In addition to stopping the containers, it also removes the network. 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
